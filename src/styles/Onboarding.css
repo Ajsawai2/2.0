@@ -1,0 +1,302 @@
+.onboarding-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.onboarding-content {
+  width: 100%;
+  max-width: 480px;
+  z-index: 1;
+  position: relative;
+}
+
+.onboarding-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.onboarding-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.onboarding-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.onboarding-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-top: var(--spacing-md);
+}
+
+.onboarding-form {
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.onboarding-form::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--gradient-card-glow);
+  opacity: 0.3;
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+.onboarding-form::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-dark);
+  z-index: -1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  letter-spacing: 0.02em;
+}
+
+.label-hint {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.form-input,
+.form-textarea {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-green);
+  border-color: var(--color-primary);
+  background: var(--glass-bg-strong);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.7;
+}
+
+.gender-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.gender-option {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.gender-option::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.gender-option:hover::before {
+  opacity: 0.1;
+}
+
+.gender-option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.gender-option.active {
+  background: var(--gradient-primary);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-glow-green);
+  transform: translateY(-2px);
+}
+
+.gender-option.active::before {
+  opacity: 1;
+}
+
+.privacy-notice {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  position: relative;
+  border-left: 3px solid var(--color-primary);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.privacy-notice strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.submit-button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.gradient-button {
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-glow-green);
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+  z-index: -1;
+}
+
+.gradient-button:hover:not(:disabled) {
+  box-shadow: var(--shadow-glow-green), 0 0 40px rgba(16, 185, 129, 0.4);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.gradient-button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.gradient-button:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .onboarding-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .onboarding-form {
+    padding: var(--spacing-lg);
+  }
+  
+  .gender-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}

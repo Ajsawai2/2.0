@@ -1,0 +1,142 @@
+.likes-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.likes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.likes-content {
+  flex: 1;
+  padding: var(--spacing-lg) var(--spacing-md);
+  overflow-y: auto;
+}
+
+.likes-title {
+  font-family: var(--font-playfair), serif;
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.empty-likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  text-align: center;
+  min-height: 400px;
+}
+
+.empty-likes p {
+  font-size: 1.2rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-likes span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.likes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.liked-card {
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--glass-border-strong);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.03),
+              inset 0 0 35px rgba(59, 130, 246, 0.07),
+              inset 0 0 18px rgba(99, 102, 241, 0.04);
+}
+
+.liked-message {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+}
+
+.liked-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-top: 2px solid var(--glass-border);
+}
+
+.liked-user {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.liked-username {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.liked-details {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.liked-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.liked-interest {
+  padding: 4px var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  border: 2px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.liked-time {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+  .likes-content {
+    padding: var(--spacing-md);
+  }
+  
+  .likes-title {
+    font-size: 1.5rem;
+  }
+}

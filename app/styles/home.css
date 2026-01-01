@@ -1,0 +1,168 @@
+.home-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 24px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+.reward-icon-container {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.reward-icon-container:hover {
+  transform: scale(1.1);
+}
+
+.reward-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-primary);
+}
+
+.home-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  min-height: 60vh;
+}
+
+.empty-state {
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid var(--glass-border-strong);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.03);
+}
+
+.empty-state h2 {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.empty-state p {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+.home-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  padding-bottom: max(var(--spacing-lg), env(safe-area-inset-bottom));
+  justify-content: center;
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  z-index: 90;
+}
+
+.action-button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--glass-border);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all 0.3s ease;
+  min-width: 130px;
+  justify-content: center;
+  color: var(--color-text-primary);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.skip-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--glass-border-strong);
+}
+
+.like-button {
+  background: var(--gradient-secondary);
+  border: 2px solid transparent;
+  color: white;
+  /* Subtle logo glow */
+  box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1),
+              inset 0 0 10px rgba(99, 102, 241, 0.05);
+}
+
+.like-button:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 25px rgba(59, 130, 246, 0.12),
+              inset 0 0 12px rgba(99, 102, 241, 0.06);
+}
+
+.button-icon {
+  font-size: 1.3rem;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    padding: var(--spacing-md);
+  }
+  
+  .action-button {
+    min-width: 110px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 0.9rem;
+  }
+  
+  .home-actions {
+    padding: var(--spacing-md);
+  }
+}

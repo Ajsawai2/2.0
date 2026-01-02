@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import '../styles/messageCard.css'
 
@@ -17,7 +17,7 @@ interface MessageCardProps {
   onSkip: () => void
 }
 
-export default function MessageCard({ message, onLike, onSkip }: MessageCardProps) {
+export default memo(function MessageCard({ message, onLike, onSkip }: MessageCardProps) {
   const [isRevealed, setIsRevealed] = useState(false)
   const [canInteract, setCanInteract] = useState(false)
 
@@ -141,5 +141,4 @@ export default function MessageCard({ message, onLike, onSkip }: MessageCardProp
       )}
     </motion.div>
   )
-}
-
+})

@@ -82,7 +82,7 @@ export default function NotificationsPage() {
         )}
       </div>
       
-      <BottomNav activeTab="notifications" />
+      <BottomNav />
     </div>
   )
 }

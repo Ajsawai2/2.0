@@ -75,7 +75,7 @@ export default function LikesPage() {
         )}
       </div>
       
-      <BottomNav activeTab="likes" />
+      <BottomNav />
     </div>
   )
 }

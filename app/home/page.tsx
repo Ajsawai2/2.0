@@ -107,7 +107,7 @@ export default function HomePage() {
         </motion.button>
       </div>
 
-      <BottomNav activeTab="home" />
+      <BottomNav />
     </div>
   )
 }

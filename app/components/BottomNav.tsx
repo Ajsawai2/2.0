@@ -3,64 +3,48 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
+import { memo } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faHeart, faBell, faUser } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHome,
+  faHeart,
+  faBell,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
+
 import '../styles/bottomNav.css'
 
-interface BottomNavProps {
-  activeTab: 'home' | 'likes' | 'notifications' | 'profile'
-}
+const Icon = memo(FontAwesomeIcon)
 
-export default function BottomNav({ activeTab }: BottomNavProps) {
+const NAV_ITEMS = [
+  { id: 'home', icon: faHome, path: '/home' },
+  { id: 'likes', icon: faHeart, path: '/likes' },
+  { id: 'notifications', icon: faBell, path: '/notifications' },
+  { id: 'profile', icon: faUser, path: '/profile' },
+]
+
+export default memo(function BottomNav() {
   const pathname = usePathname()
-
-  const navItems = [
-    { 
-      id: 'home', 
-      label: 'HOME', 
-      icon: faHome,
-      path: '/home' 
-    },
-    { 
-      id: 'likes', 
-      label: 'LIKES', 
-      icon: faHeart,
-      path: '/likes' 
-    },
-    { 
-      id: 'notifications', 
-      label: 'NOTIFICATIONS', 
-      icon: faBell,
-      path: '/notifications' 
-    },
-    { 
-      id: 'profile', 
-      label: 'PROFILE', 
-      icon: faUser,
-      path: '/profile' 
-    }
-  ]
 
   return (
     <nav className="bottom-nav">
-      {navItems.map((item) => {
-        const isActive = activeTab === item.id
+      {NAV_ITEMS.map((item) => {
+        const isActive = pathname === item.path
+
         return (
-          <Link key={item.id} href={item.path}>
+          <Link
+            key={item.id}
+            href={item.path}
+            prefetch
+            className={`nav-item ${isActive ? 'active' : ''}`}
+          >
             <motion.div
-              className={`nav-item ${isActive ? 'active' : ''}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.08 }}
             >
-              <FontAwesomeIcon icon={item.icon} className="nav-icon" />
-              <span className="nav-label">{item.label}</span>
+              <Icon icon={item.icon} className="nav-icon" />
               {isActive && (
-                <motion.div
-                  className="nav-indicator"
-                  layoutId="activeIndicator"
-                  initial={false}
-                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                />
+                <div className="nav-indicator" />
               )}
             </motion.div>
           </Link>
@@ -68,4 +52,4 @@ export default function BottomNav({ activeTab }: BottomNavProps) {
       })}
     </nav>
   )
-}
+})
